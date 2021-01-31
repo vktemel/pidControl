@@ -22,8 +22,9 @@ class PID {
   /**
    * Update the PID error variables given cross track error.
    * @param cte The current cross track error
+   * @param i_lim The limit which I error can accumulate up to. 
    */
-  void UpdateError(double cte);
+  void UpdateError(double cte, double i_lim);
 
   /**
    * Calculate the total PID error.
@@ -38,6 +39,7 @@ class PID {
   double p_error;
   double i_error;
   double d_error;
+  double prev_cte;
 
   /**
    * PID Coefficients
